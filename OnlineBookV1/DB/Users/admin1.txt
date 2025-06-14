@@ -1,4 +1,0 @@
-admin1
-email
-admin1
-D:\workspaces\eclipse_ws\OnlineBook\DB\Users\admin1.txt

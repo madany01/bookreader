@@ -207,11 +207,13 @@ public:
 	static string gluePaths(const vector<string>& paths, const string &extension){
 		assert(sz(paths) > 0);
 
-		string glued_path = paths[0];
-		lp(i, 1, sz(paths)) glued_path += "\\" + paths[i];
-
+		auto glued_path_fs = fs::path(paths[0]);
+		lp(i, 1, sz(paths)) glued_path_fs /= paths[i];
+		
+		string glued_path = glued_path_fs.string();
+		
 		if(not extension.empty())
-			glued_path +=  extension;
+			glued_path += extension;
 
 		return glued_path;
 	}
@@ -341,7 +343,7 @@ public:
 };
 
 class BooksManager{
-	inline static const string path_dir_books_man = "D:\\workspaces\\eclipse_ws\\OnlineBookV2\\DB\\BooksManager";
+	inline static const string path_dir_books_man = (fs::current_path() / "DB" / "BooksManager").string();
 	inline static const string extension = ".txt";
 
 	map<string, Book> books; // [book_id, Book]
@@ -536,7 +538,8 @@ public:
 };
 
 class SessionManager{
-	inline static const string path_dir_sess_man = "D:\\workspaces\\eclipse_ws\\OnlineBookV2\\DB\\SessionManager";
+	inline static const string path_dir_sess_man = (fs::current_path() / "DB" / "SessionManager").string();
+	
 	inline static const string extension = ".txt";
 
 	map<string, Session> sessions;
@@ -703,7 +706,7 @@ public:
 };
 
 class CustomersManager{
-	inline static const string path_dir_cus_man = "D:\\workspaces\\eclipse_ws\\OnlineBookV2\\DB\\CustomersManager";
+	inline static const string path_dir_cus_man = (fs::current_path() / "DB" / "CustomersManager").string();
 	inline static const string extension = ".txt";
 
 	map<string, Customer> customers; // handled here
@@ -772,7 +775,7 @@ public:
 };
 
 class AdminsManager{
-	inline static const string path_dir_admins_man = "D:\\workspaces\\eclipse_ws\\OnlineBookV2\\DB\\AdminsManager";
+	inline static const string path_dir_admins_man = (fs::current_path() / "DB" / "AdminsManager").string();
 	inline static const string extension = ".txt";
 	map<string, Admin> admins;
 	BooksManager &books_man;
