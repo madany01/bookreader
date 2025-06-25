@@ -1,6 +1,13 @@
-# BookStore
+# BookReader
 
-C++ console-based app for managing a book store.
+C++ console-based multi-role book reading app with persistent session tracking and administrative controls.
+
+## Core Features:
+
+- User Roles: Admins (add/remove books) and Customers (read books)
+- Session tracking (save/restore reading progress)
+- Page navigation (next/prev/jump)
+- Book management (add/delete books with multi-page storage)
 
 ## Overview
 
@@ -35,6 +42,12 @@ During an open session:
 - The customer can view the current page of the book
 - Navigate to the next/previous page or jump to a specific one
 - Close the session
+
+## Technical Implementation:
+
+- Object-oriented design
+- File-based storage for users/books/sessions
+- Layered architecture (data, logic, UI separation)
 
 ## Screenshots
 
