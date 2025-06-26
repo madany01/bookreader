@@ -62,7 +62,7 @@ During an open session:
 ## Run
 
 ```bash
-git clone git@gitlab.com:madany/bookstore.git
+git clone git@github.com:madany01/bookstore.git
 cd bookstore
 
 g++ --std=c++20 -o run.out src/main.cpp
